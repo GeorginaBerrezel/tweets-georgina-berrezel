@@ -18,5 +18,10 @@ body {
 }
 
 .favorite {
-    border: 2px solid salmon;
+    background-color: #1e9bf0;
+    border-radius: 8px;
+}
+
+i {
+    padding-right: 0.5rem;
 }

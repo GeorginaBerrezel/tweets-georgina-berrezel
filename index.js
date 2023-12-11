@@ -30,28 +30,24 @@ const tweets = [
         likes: 20
     }
 ]
- // Display the first item in the list
-// const firstTweet = tweets[0];
-const tweetsList = document.getElementById('tweets-list');
 
-// const createTweetElement = document.createElement('li');
-// createTweetElement.classList.add('tweet');
-//
-// createTweetElement.innerHTML = `
-//   <p class="content">${firstTweet.content}</p>
-//   <p class="likes">${firstTweet.likes} likes</p>
-//   <p class="author">${firstTweet.author}</p>
-// `;
-//
-// tweetsList.appendChild(createTweetElement);
+const tweetsList = document.getElementById('tweets-list');
 
 tweets.forEach((tweet) => {
     const createTweetElement = document.createElement('li');
     createTweetElement.classList.add('tweet');
 
+    if (tweet.likes > 10) {
+        createTweetElement.classList.add('favorite');
+    }
+
+    // If the number of likes in the tweet is greater than 10,
+    // use the 'fa-solid fa-bolt' BOOST icon class, otherwise I use 'fa-solid fa-heart':)
+    const likeIconClass = tweet.likes > 10 ? 'fa-solid fa-bolt' : 'fa-solid fa-heart';
+
     createTweetElement.innerHTML = `
   <p class="content">${tweet.content}</p>
-  <p class="likes">${tweet.likes} likes</p>
+  <p class="likes"><i class="${likeIconClass}"></i>${tweet.likes} likes</p>
   <p class="author">${tweet.author}</p>
 `;
 
