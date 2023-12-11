@@ -30,17 +30,30 @@ const tweets = [
         likes: 20
     }
 ]
-
-const firstTweet = tweets[0];
+ // Display the first item in the list
+// const firstTweet = tweets[0];
 const tweetsList = document.getElementById('tweets-list');
 
-const createTweetElement = document.createElement('li');
-createTweetElement.classList.add('tweet');
+// const createTweetElement = document.createElement('li');
+// createTweetElement.classList.add('tweet');
+//
+// createTweetElement.innerHTML = `
+//   <p class="content">${firstTweet.content}</p>
+//   <p class="likes">${firstTweet.likes} likes</p>
+//   <p class="author">${firstTweet.author}</p>
+// `;
+//
+// tweetsList.appendChild(createTweetElement);
 
-createTweetElement.innerHTML = `
-  <p class="content">${firstTweet.content}</p>
-  <p class="likes">${firstTweet.likes} likes</p>
-  <p class="author">${firstTweet.author}</p>
+tweets.forEach((tweet) => {
+    const createTweetElement = document.createElement('li');
+    createTweetElement.classList.add('tweet');
+
+    createTweetElement.innerHTML = `
+  <p class="content">${tweet.content}</p>
+  <p class="likes">${tweet.likes} likes</p>
+  <p class="author">${tweet.author}</p>
 `;
 
-tweetsList.appendChild(createTweetElement);
+    tweetsList.appendChild(createTweetElement);
+})
